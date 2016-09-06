@@ -187,16 +187,10 @@ class getTemp(OpenRTM_aist.DataFlowComponentBase):
 		#
 		#
 	def onExecute(self, ec_id):
-        print "onExecute has launch"
-        adt7410 = FaBoTemperature_ADT7410.ADT7410()
-        temp = adt7410.read()
-        print "get temp info"
-        print "origin temp : %4.2f " % temp
-        print
-        self._d_d_origin_Temp.data = temp
-        print "date Temp : %4.2f " % self._d_d_origin_Temp.data
-        print "finish data d_temp"
-        self._origin_TempOut.write()
+        	adt7410 = FaBoTemperature_ADT7410.ADT7410()
+        	self._d_d_origin_Temp.data = adt7410.read()
+        	self._origin_TempOut.write()
+		#print self._d_d_origin_Temp
 		return RTC.RTC_OK
 
 	#	##
